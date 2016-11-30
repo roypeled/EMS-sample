@@ -1,0 +1,29 @@
+.item {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  overflow: auto;
+  list-style: none;
+  position: relative;
+
+  dl {
+    margin: 0;
+  }
+
+  dt {
+    font-weight: 600;
+    clear: left;
+    float: left;
+  }
+
+  dd {
+    float: left;
+    margin-left: 10px;
+  }
+
+  .buttons {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+}
