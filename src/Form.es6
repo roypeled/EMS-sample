@@ -8,6 +8,10 @@ import "./form.scss";
 
 export default class Form {
 
+	constructor(){
+		this.allTitles = ["CEO", "Manager", "Teacher", "Employee", "Pilot"];
+	}
+
 	addEmployee(e){
 		e.preventDefault();
 
@@ -42,9 +46,11 @@ export default class Form {
 	<input type="text" name="name" placeholder="Name..."/>
 	<input type="text" name="skill" placeholder="Skill..."/>
 	<select name="title">
-		<option value="CEO">CEO</option>
-		<option value="Manager">Manager</option>
-		<option value="Teacher">Teacher</option>
+		${
+			this.allTitles.map(
+				(title)=> `<option value="${title}">${title}</option>` 
+			).join('')
+		}
 	</select>
 	<button>Add Employee</button>
 </form>
