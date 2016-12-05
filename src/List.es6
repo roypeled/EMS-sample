@@ -1,22 +1,15 @@
-import $ from "jquery";
-import ItemsService from './ItemsService.es6';
-
 export default class List {
 
-	constructor(){
-		ItemsService.onChanges(() => this.render() );
+	constructor(listView, itemService) {
+		this.listView = listView;
+		this.itemService = itemService;
+		itemService.onChanges(() => this.update() );
+
+		this.update();
 	}
 
-	render(){
-		this.template = this.template || $(`<ul></ul>`);
-		this.template.html("");
-
-		for(let item of ItemsService.itemsArray) {
-			let itemHTML = item.render();
-			this.template.append(itemHTML);
-		}
-
-		return this.template
+	update(){
+		this.listView.render( this.itemService.itemsArray );
 	}
 
 }

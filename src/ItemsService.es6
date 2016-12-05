@@ -4,7 +4,7 @@ import Manager from "./Manager.es6";
 
 class ItemsService {
 	constructor(){
-		let ceo = new CEO("Roy", "Angular");
+		let ceo = new CEO(this, "Roy", "Angular");
 		let teacher = new Teacher("David", "React");
 		let manager = new Manager("Dudi", "SCSS");
 
@@ -37,4 +37,12 @@ class ItemsService {
 	}
 }
 
-export default new ItemsService();
+let itemsService;
+
+export default {
+	get: function(){
+		itemsService = itemsService || new ItemsService();
+
+		return itemsService;
+	}
+}

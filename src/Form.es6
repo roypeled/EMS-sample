@@ -2,14 +2,14 @@ import $ from "jquery";
 import CEO from "./CEO.es6";
 import Teacher from "./Teacher.es6";
 import Manager from "./Manager.es6";
-import ItemsService from "./ItemsService.es6";
 
 import "./form.scss";
 
 export default class Form {
 
-	constructor(){
+	constructor(itemsService){
 		this.allTitles = ["CEO", "Manager", "Teacher", "Employee", "Pilot"];
+		this.itemsService = itemsService;
 	}
 
 	addEmployee(e){
@@ -23,7 +23,7 @@ export default class Form {
 
 		switch (title){
 			case "CEO":
-				newItem = new CEO(name, skill);
+				newItem = new CEO(this.itemsService, name, skill);
 				break;
 			case "Manager":
 				newItem = new Manager(name, skill);
@@ -33,7 +33,7 @@ export default class Form {
 				break;
 		}
 
-		ItemsService.addItem(newItem);
+		this.itemsService.addItem(newItem);
 
 		this.template.find('[name="name"]').val("");
 		this.template.find('[name="skill"]').val("");

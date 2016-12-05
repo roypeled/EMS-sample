@@ -1,15 +1,15 @@
 import Manager from "./Manager.es6";
-import ItemsService from './ItemsService.es6';
 import $ from "jquery";
 
 export default class CEO extends Manager {
 
-	constructor(name, skill, title = "CEO"){
-		super(name, skill, title)
+	constructor(itemsService, name, skill, title = "CEO"){
+		super(name, skill, title);
+		this.itemsService = itemsService;
 	}
 
 	fireAll(){
-		ItemsService.fireAll();
+		this.itemsService.fireAll();
 	}
 
 	getButtons(){
