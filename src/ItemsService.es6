@@ -1,9 +1,17 @@
-class ItemsService {
+import CEO from "./CEO.es6";
+import Teacher from "./Teacher.es6";
+import Manager from "./Manager.es6";
 
+class ItemsService {
 	constructor(){
-		this.itemsArray = [];
+		let ceo = new CEO("Roy", "Angular");
+		let teacher = new Teacher("David", "React");
+		let manager = new Manager("Dudi", "SCSS");
+
+		this.itemsArray = [ceo, teacher, manager];
 		this.changeHandler = ()=>{}
 	}
+
 
 	addItem(item){
 		this.itemsArray.push(item);

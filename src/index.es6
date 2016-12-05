@@ -1,16 +1,8 @@
-import CEO from './CEO.es6';
-import Teacher from './Teacher.es6';
-import Manager from './Manager.es6';
 import List from './List.es6';
-import ItemsService from './ItemsService.es6';
-
-let ceo = new CEO("Roy", "Angular");
-let teacher = new Teacher("David", "React");
-let manager = new Manager("Dudi", "SCSS");
-ItemsService.addItem(ceo);
-ItemsService.addItem(teacher);
-ItemsService.addItem(manager);
+import Form from './Form.es6';
 
 let list = new List();
+let form = new Form();
 
+document.body.appendChild(form.render()[0]);
 document.body.appendChild(list.render()[0]);
